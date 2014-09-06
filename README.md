@@ -3,7 +3,9 @@ yt-cchannel2podcast
 
 "CMS" using the yt api v3, made for alumninati.no
 
-**License**
+License
+===================
+
 Copyright (C) 2014  The Alumninati (Alumninati.no)
 
 This program is free software: you can redistribute it and/or modify
