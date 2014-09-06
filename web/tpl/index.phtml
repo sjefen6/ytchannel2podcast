@@ -1,0 +1,41 @@
+<?php include("header.phtml"); ?>
+<div id="first">
+	<?=($first == null ? lang::g("no_videos") : large($first))?>
+</div>
+<?php
+if(count($live) > 0){?>
+<div id="live">
+	<h2><?=lang::g("other_live")?></h2>
+<?php
+	foreach ($live as $v) {
+		thumb($v);
+	}
+?>
+</div>
+<?php
+}
+
+if(count($upcoming) > 0){?>
+<div id="upcoming">
+	<h2><?=lang::g("other_upcoming")?></h2>
+<?php
+	foreach ($upcoming as $v) {
+		thumb($v);
+	}
+?>
+</div>
+<?php
+}
+
+if(count($video) > 0){?>
+<div id="video">
+	<h2><?=lang::g("other_video")?></h2>
+<?php
+	foreach ($video as $v) {
+		thumb($v);
+	}
+?>
+</div>
+<?php
+}
+include("footer.phtml");

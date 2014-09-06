@@ -1,0 +1,51 @@
+<?= "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n" ?>
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+>
+<channel>
+	<title>Alumninati</title>
+	<description>foobar</description>
+	<link>http://alumninati.no</link> 
+	<copyright>CCshizwaz</copyright>
+	<itunes:author>post@alumninati.no</itunes:author>
+	<language>no</language>
+	<itunes:block>no</itunes:block>
+	<itunes:category></itunes:category>
+	<itunes:image></itunes:image>
+	<itunes:explicit>no</itunes:explicit>
+	<itunes:complete>no</itunes:complete>
+	<!--<itunes:new-feed-url><itunes:new-feed-url>-->
+	<itunes:owner>
+		<itunes:email>post@alumninati.no</itunes:email>
+		<itunes:name>The Alumninati</itunes:name>
+	<itunes:owner>
+	<itunes:subtitle><itunes:subtitle>
+	<atom:link href="http://alumninati.no" rel="self" type="application/rss+xml" />
+<?php
+foreach ($video as $v) {
+?>
+	<item>
+		<title><?= $v["title"] ?></title>
+		<guid>https://www.youtube.com/watch?v=<?= $v["videoid"] ?></guid>
+		<link>https://www.youtube.com/watch?v=<?= $v["videoid"] ?></link>
+		<description><![CDATA[
+			<?= large($v); ?>
+		]]></description>
+		<pubDate><?= $v["publishedAt"]->format(DateTime::RSS) ?></pubDate>
+		<enclosure 
+			url="http://raw.alumninati.no/<?= $format . "/" . $v["videoid"] . "." . ($format == "audio" ? "mp3" : "mp4") ?>"
+			length="5650889"
+			type=“<?= ($format == "audio" ? "audio/mpeg" : "video/mp4") ?>"
+		/>
+		<itunes:duration>60:00</itunes:duration>
+		<itunes:block>no</itunes:block>
+		<itunes:image></itunes:image>
+		<itunes:explicit></itunes:explicit>
+		<itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
+		<itunes:subtitle></itunes:subtitle>
+		<!--<itunes:order></itunes:order>-->
+	</item>
+<?php	} ?>
+</channel>
+</rss>
